@@ -34,6 +34,63 @@ public class Lambda {
         return total;
     }
 
+    public static int sumTotal(List<Integer> numbers, Conditional c) {
+        int total = 0;
+        for (int number : numbers) {
+            if (c.test(number)) {
+                total += number;
+            }
+        }
+        return total;
+    }
+
+    public static int sumAllAnonymous(List<Integer> numbers) {
+        return sumTotal(numbers, new Conditional() {
+            @Override
+            public boolean test(Integer number) {
+                return true;
+            }
+        });
+    }
+
+    public static int sumAllEvenAnonymous(List<Integer> numbers) {
+        return sumTotal(numbers, new Conditional() {
+            @Override
+            public boolean test(Integer number) {
+                if (number%2 == 0) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    public static int sumAllOverThreeAnonymous(List<Integer> numbers) {
+        return sumTotal(numbers, new Conditional() {
+            @Override
+            public boolean test(Integer number) {
+                if (number > 3) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    public static int sumAllLambda(List<Integer> numbers) {
+        return sumTotal(numbers, number -> true);
+    }
+
+    public static int sumAllEvenLambda(List<Integer> numbers) {
+        return sumTotal(numbers, number -> number % 2 == 0);
+    }
+
+    public static int sumAllOverThreeLambda(List<Integer> numbers) {
+        return sumTotal(numbers, number -> number > 3);
+    }
+
+
+
     public static int sumAllEven(List<Integer> numbers) {
         int total = 0;
         for (int number : numbers) {

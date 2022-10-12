@@ -48,4 +48,40 @@ public class LambdaTest {
         int sum = Lambda.sumAllOverThree(numbers);
         assertThat(sum).isEqualTo(15);
     }
+
+    @Test
+    public void sumAllAnonymousTest() {
+        int sum = Lambda.sumAllAnonymous(numbers);
+        assertThat(sum).isEqualTo(21);
+    }
+
+    @Test
+    public void sumAllEvenAnonymousTest() {
+        int sum = Lambda.sumAllEvenAnonymous(numbers);
+        assertThat(sum).isEqualTo(12);
+    }
+
+    @Test
+    public void sumAllOverThreeAnonymousTest() {
+        int sum = Lambda.sumAllOverThreeAnonymous(numbers);
+        assertThat(sum).isEqualTo(15);
+    }
+
+    @Test
+    public void sumAllLambdaTest() {
+        int sum = Lambda.sumAllLambda(numbers);
+        assertThat(sum).isEqualTo(21);
+    }
+
+    @Test
+    public void sumAllEvenLambdaTest() {
+        int sum = Lambda.sumAllEvenLambda(numbers);
+        assertThat(sum).isEqualTo(12);
+    }
+
+    @Test
+    public void sumAllOverThreeTest() {
+        int sum = Lambda.sumAllOverThreeLambda(numbers);
+        assertThat(sum).isEqualTo(15);
+    }
 }
