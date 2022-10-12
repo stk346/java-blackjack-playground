@@ -82,11 +82,11 @@ public class Lambda {
     }
 
     public static int sumAllEvenLambda(List<Integer> numbers) {
-        return sumTotal(numbers, number -> number % 2 == 0);
+        return sumTotal(numbers, x ->  x % 2 == 0);
     }
 
     public static int sumAllOverThreeLambda(List<Integer> numbers) {
-        return sumTotal(numbers, number -> number > 3);
+        return sumTotal(numbers, x -> x > 3);
     }
 
 
