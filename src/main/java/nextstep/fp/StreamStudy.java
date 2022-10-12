@@ -37,7 +37,7 @@ public class StreamStudy {
                                     .collect(Collectors.toList());
         System.out.println(filteredWords.size());
         for (String word : filteredWords) {
-            System.out.print(word + " ");
+            System.out.println(word);
         }
 
     }
