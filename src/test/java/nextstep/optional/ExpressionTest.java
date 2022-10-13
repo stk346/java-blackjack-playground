@@ -19,4 +19,9 @@ public class ExpressionTest {
                     Expression.of("&");
                 });
     }
+
+    @Test
+    public void exTest() {
+        Expression.of("/");
+    }
 }
