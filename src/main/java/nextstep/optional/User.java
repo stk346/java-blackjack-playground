@@ -40,8 +40,9 @@ public class User {
                         .filter(x -> x >= 30)
                         .filter(x -> x <= 45)
                         .isPresent();
-
     }
+
+
 
     @Override
     public int hashCode() {
