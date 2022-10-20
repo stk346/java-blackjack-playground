@@ -7,17 +7,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DealerTest {
-
-    // BeforeEach로 dealder, deck 만들어도 Test함수에서 적용이 안되는듯
-//    @BeforeEach
-//    public static void setUp() {
-//        Dealer dealer = new Dealer();
-//        Deck deck = new Deck();
-//    }
+    Dealer dealer;
+    Deck deck;
+//     BeforeEach로 dealder, deck 만들어도 Test함수에서 적용이 안되는듯
+    @BeforeEach
+    public void setUp() {
+        dealer = new Dealer();
+        deck = new Deck();
+    }
 
     @Test
     public void dealerGetCardTest() {
-        Dealer dealer = new Dealer();
+        dealer.getCard();
         dealer.getCard();
         System.out.println(dealer.dealerCardList.get(0).getType());
         System.out.println(dealer.dealerCardList.get(0).getNumber());
@@ -27,11 +28,29 @@ public class DealerTest {
 
     @Test
     public void dealerCardShowingTest() {
-        Dealer dealer = new Dealer();
-        Deck deck = new Deck();
         System.out.println(cardList.size());
+        dealer.getCard();
         dealer.getCard();
         System.out.println(cardList.size());
         assertThat(dealer.getCardNumberAtFirst()).isEqualTo(2);
+    }
+
+    @Test
+    public void dealerNumberThresholdTest() {
+        dealer.getCard();
+        dealer.getCard();
+        dealer.getCard();
+        dealer.getCard();
+        dealer.getCard();
+        assertThat(dealer.isUnderSeventeen()).isEqualTo(false);
+    }
+
+    @Test
+    public void getCardTestWhenUnderSeventeen() {
+        while (dealer.isUnderSeventeen()) {
+            dealer.getCardWhenUnderSixteen();
+            System.out.println(dealer.dealerCardList.stream().mapToInt(x -> Integer.parseInt(x.getNumber())).sum());
+        }
+        assertThat(dealer.isUnderSeventeen()).isEqualTo(false);
     }
 }

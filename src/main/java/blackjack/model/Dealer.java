@@ -7,13 +7,13 @@ import static blackjack.model.Deck.cardList;
 public class Dealer {
     public ArrayList<Card> dealerCardList;
     public int budget;
+    private int DEALER_NUMBER_THRESHOLD = 16;
 
     Dealer() {
         this.dealerCardList = new ArrayList<Card>();
     }
 
     public void getCard() {
-        dealerCardList.add(cardList.remove(1));
         dealerCardList.add(cardList.remove(1));
     }
 
@@ -39,5 +39,17 @@ public class Dealer {
             }
         }
         return smallCard.getType();
+    }
+
+    boolean isUnderSeventeen() {
+        return dealerCardList.stream()
+                .mapToInt(x -> Integer.parseInt(x.getNumber()))
+                .sum() < 17;
+    }
+
+    void getCardWhenUnderSixteen() {
+        if (isUnderSeventeen()) {
+            getCard();
+        }
     }
 }
