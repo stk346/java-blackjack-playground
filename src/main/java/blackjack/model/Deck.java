@@ -3,7 +3,7 @@ package blackjack.model;
 import java.util.ArrayList;
 
 public class Deck {
-    ArrayList<Card> cardList = new ArrayList<>();
+    public static ArrayList<Card> cardList = new ArrayList<>();
 
     Deck() {
         this.generateDeck();
